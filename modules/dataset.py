@@ -12,15 +12,21 @@ import numpy as np
 
 class phosc_dataset(Dataset):
     def __init__(self, csvfile, root_dir, transform=None, calc_phosc=True):
-
         # TODO: fill inn Dummy variables below
-        self.root_dir = ""
-        self.df_all = pd.DataFrame(columns=["Image", "Word", "phos", "phoc", "phosc"])
-        filename = ""
-        word_label = ""
-        phos = ""
-        phosc = ""
-        phosc = ""
+        self.df_all = pd.read_csv(csvfile,
+                                  header=None,
+                                  names=["Image", "Word", "phos", "phoc", "phosc"])
+
+        self.root_dir = root_dir
+        self.csvfile = csvfile
+        self.transform = transform
+        print(self.df_all)
+        # ape = "ape"
+        # # filename = ""
+        # word_label = ""
+        # phos = ""
+        # phosc = ""
+        # phosc = ""
 
         # dr.ram
         # Fill in your code here. You will populate self.df_all
