@@ -13,4 +13,4 @@ activate environment using
 ```conda activate uitnn```
 
 make sure to run environment by setting
-```--mode train``` under run configurations -> parameters in pycharm
+```--mode train --model PHOSCnet_temporalpooling --train_csv dte2502_ga01/train.csv --train_folder dte2502_ga01/train --valid_csv dte2502_ga01/valid.csv --valid_folder dte2502_ga01/valid``` under run configurations -> parameters in pycharm
