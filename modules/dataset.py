@@ -20,8 +20,13 @@ class phosc_dataset(Dataset):
 
         self.df_all['phos'] = self.df_all['Word'].apply(generate_phos_vector)
         self.df_all['phoc'] = self.df_all['Word'].apply(generate_phoc_vector)
-        if calc_phosc:
-            self.df_all['phosc'] = self.df_all['Word'].apply(generate_phoc_vector, generate_phos_vector)
+        # if calc_phosc:
+        #     self.df_all['phosc'] = self.df_all['Word'].apply(generate_phoc_vector, generate_phos_vector)
+        if calc_phosc:  # freddy
+            self.df_all['phosc'] = self.df_all['phos']
+            for i in range(len(self.df_all["phos"])):
+                self.df_all['phosc'][i] = np.concatenate((self.df_all["phos"][i], self.df_all["phoc"][i]))
+
         # print(self.df_all.to_string())
 
         # dr.ram

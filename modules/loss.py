@@ -15,11 +15,11 @@ class PHOSCLoss(nn.Module):
         # Apply the loss on PHOS features this is a regression loss
         # Note: This loss should be applicable to the PHOS part of the
         # output which is the first part of the output.
-        phos_loss = self.phos_w * nn.functional.mse_loss(y['phos'], targets[:])
+        phos_loss = self.phos_w * nn.functional.mse_loss(y['phos'], targets[:, :165])
 
         # Apply the loss on PHOC features this is a classification loss
         # Note: This loss should be applicable to the PHOC part of the
-        phoc_loss = self.phoc_w * nn.functional.mse_loss(y['phoc'], targets[:])
+        phoc_loss = self.phoc_w * nn.functional.mse_loss(y['phoc'], targets[:, 165:])
 
         loss = phos_loss + phoc_loss
         return loss
