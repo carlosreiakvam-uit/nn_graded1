@@ -52,8 +52,10 @@ def get_args_parser():
 
 
 def main(args):
+    print(torch.__version__)
     print('Creating dataset...')
     if args.mode == 'train':
+        # phosc_dataset is a class that contains the dataset,
         dataset_train = phosc_dataset(args.train_csv,
                                       args.train_folder, transforms.ToTensor())
 
@@ -83,7 +85,7 @@ def main(args):
 
     elif args.mode == 'test':
         dataset_test_seen = phosc_dataset(args.test_csv_seen,
-                                     args.test_folder_seen, transforms.ToTensor())
+                                          args.test_folder_seen, transforms.ToTensor())
 
         data_loader_test_seen = torch.utils.data.DataLoader(
             dataset_test_seen,
@@ -94,7 +96,7 @@ def main(args):
         )
 
         dataset_test_unseen = phosc_dataset(args.test_csv_unseen,
-                                     args.test_folder_unseen, transforms.ToTensor())
+                                            args.test_folder_unseen, transforms.ToTensor())
 
         data_loader_test_unseen = torch.utils.data.DataLoader(
             dataset_test_unseen,
