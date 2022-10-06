@@ -131,7 +131,7 @@ def main(args):
 
         mx_acc = 0
         best_epoch = 0
-        for epoch in range(1, args.epochs + 1):
+        for epoch in range(1, args.epochs + 1):  # (1, args.epochs + 1)
             mean_loss = train_one_epoch(model, criterion, data_loader_train, opt, device, epoch)
             valid_acc = -1
 

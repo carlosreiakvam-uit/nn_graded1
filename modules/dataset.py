@@ -20,23 +20,10 @@ class phosc_dataset(Dataset):
 
         self.df_all['phos'] = self.df_all['Word'].apply(generate_phos_vector)
         self.df_all['phoc'] = self.df_all['Word'].apply(generate_phoc_vector)
-        # if calc_phosc:
-        #     self.df_all['phosc'] = self.df_all['Word'].apply(generate_phoc_vector, generate_phos_vector)
-        if calc_phosc:  # freddy
+        if calc_phosc:
             self.df_all['phosc'] = self.df_all['phos']
             for i in range(len(self.df_all["phos"])):
                 self.df_all['phosc'][i] = np.concatenate((self.df_all["phos"][i], self.df_all["phoc"][i]))
-
-        # print(self.df_all.to_string())
-
-        # dr.ram
-        # Fill in your code here. You will populate self.df_all
-        # it should be pandas df with ["Image", "Word", "phos", "phoc", "phosc"] columns
-        # containing file name, word label, phoc, phoc, phosc features vector in each row
-
-        # phosc features vector can be created combining generate_phos_vector, generate_phoc_vector
-        # Note: How to use phoc, phoc or phosc of the df in a batch is up to you.
-        # in the __getitem__ below the phosc vector is used in the batches.
 
     def transform(self, image):
         return image
@@ -56,7 +43,6 @@ class phosc_dataset(Dataset):
         return len(self.df_all)
 
 
-# a way to test the dataset i presume
 if __name__ == '__main__':
     from torchvision.transforms import transforms
 

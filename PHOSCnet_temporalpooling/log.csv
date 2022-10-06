@@ -9,6 +9,7 @@ epoch,loss,acc
 epoch,loss,acc
 epoch,loss,acc
 epoch,loss,acc
+1,1.9626438437767748,0.00043271311120726956
 epoch,loss,acc
 epoch,loss,acc
 epoch,loss,acc
@@ -27,4 +28,8 @@ epoch,loss,acc
 epoch,loss,acc
 epoch,loss,acc
 epoch,loss,acc
-1,1.659517176121286,0.00043271311120726956
+epoch,loss,acc
+epoch,loss,acc
+epoch,loss,acc
+1,1.7588465982263193,0.00043271311120726956
+2,1.5448331544234317,0.00043271311120726956
